@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/infopages/db" VERSION="20200320" COMMENT="XMLDB file for Moodle block/infopages"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="infopages" COMMENT="Adding static pages to Moodle">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="name" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Name of the page"/>
+        <FIELD NAME="title" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="Title of the page"/>
+        <FIELD NAME="heading" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The heading at the top of the page"/>
+        <FIELD NAME="visibleto" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Anyone, guests, logged in users"/>
+
+        <FIELD NAME="layout" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The desired page layout"/>
+        <FIELD NAME="content" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT="The html markup for the page."/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+    </TABLE>
+  </TABLES>
+</XMLDB>

@@ -17,15 +17,16 @@
 /**
  * Version information
  *
- * @package    local_info
- * @copyright  Perry Way (https://www.linkedin.com/in/perry-way-75a49a144/)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package block_infopages
+ * @copyright Perry Way (https://www.linkedin.com/in/perry-way-75a49a144/)
+ * Modified: Richard Jones (https://richardnz/net/)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'local_info';
-$plugin->version = 2020031600;
+$plugin->component = 'block_infopages';
+$plugin->version = 2020032007;
 $plugin->release = 'v1.0-r1';
 $plugin->requires = 2019111800;
-$plugin->maturity = MATURITY_STABLE;
+$plugin->maturity = MATURITY_BETA;

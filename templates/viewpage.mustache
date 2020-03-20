@@ -1,0 +1,54 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see .
+}}
+
+{{!
+    @template infopages/viewpage
+
+    This template renders the view page content
+
+    Example context (json):
+    {
+        "pages": [ [] ],
+    }
+}}
+<div class="table-responsive">
+    <table class="table table-striped">
+        <caption>
+            {{# str }} tablecaption, block_infopages {{/ str }}
+        </caption>
+        <thead>
+            <th>{{# str }} name, block_infopages {{/ str }} </th>
+            <th>{{# str }} title, block_infopages {{/ str }} </th>
+            <th>{{# str }} heading, block_infopages {{/ str }} </th>
+            <th>{{# str }} visibleto, block_infopages {{/ str }} </th>
+            <th>{{# str }} layout, block_infopages {{/ str }} </th>
+            <th>{{# str }} content, block_infopages {{/ str }} </th>
+        </thead>
+        <tbody>
+            {{#pages}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{title}}</td>
+                    <td>{{heading}}</td>
+                    <td>{{visibleto}}</td>
+                    <td>{{layout}}</td>
+                    <td>{{# shortentext}} 100,  {{{content}}} {{/ shortentext}}</td>
+                </tr>
+            {{/pages}}
+        </tbody>
+    </table>
+</div>

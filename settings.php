@@ -17,9 +17,10 @@
 /**
  * Version information
  *
- * @package    local_info
- * @copyright  Perry Way (https://www.linkedin.com/in/perry-way-75a49a144/)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package block_infopages
+ * @copyright Perry Way (https://www.linkedin.com/in/perry-way-75a49a144/)
+ * Modified: Richard Jones (https://richardnz/net/)
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();

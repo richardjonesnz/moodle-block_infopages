@@ -23,5 +23,23 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
+require("../../config.php");
+global $DB;
+$blockid = required_param('blockid', PARAM_INT);
+$context = context_block::instance($blockid);
+$PAGE->set_context($context);
+$PAGE->set_pagelayout('standard');
+$PAGE->set_title(get_string('pagetitle', 'block_infopages'));
+$PAGE->set_heading(get_string('viewlink', 'block_infopages'));
+$PAGE->set_url('/blocks/infopages/view.php');
 
+require_login();
+// Check basic permission.
+require_capability('block/infopages:seeviewpage', $context);
+
+// Get the list of static pages.
+$pagerecords = $DB->get_records('infopages', null, null, 'id, name, heading, title, visibleto,
+        layout, content');
+
+$renderer = $PAGE->get_renderer('block_infopages');
+$renderer->display_view_page($pagerecords);

@@ -13,15 +13,42 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
- * Version information
+ * block_infopages renderer.
  *
  * @package block_infopages
  * @copyright Perry Way (https://www.linkedin.com/in/perry-way-75a49a144/)
  * Modified: Richard Jones (https://richardnz/net/)
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+defined('MOODLE_INTERNAL') || die;
 
-defined('MOODLE_INTERNAL') || die();
+class block_infopages_renderer extends plugin_renderer_base {
 
+    public function fetch_block_content($blockid) {
+        $data = new stdClass();
+
+        $data->url = new moodle_url('/blocks/infopages/view.php',
+                ['blockid' => $blockid]);
+        $data->text = get_string('viewlink', 'block_infopages');
+
+        return $this->render_from_template('block_infopages/block_content',
+                $data);
+    }
+
+    public function display_view_page($pagerecords) {
+
+        $data = new stdClass();
+        $data->pages = array_values($pagerecords);
+
+        // Start output to browser.
+        echo $this->output->header();
+
+        // Render the data in a Mustache template.
+        echo $this->render_from_template('block_infopages/viewpage', $data);;
+
+        // Finish the page.
+        echo $this->output->footer();
+
+    }
+}

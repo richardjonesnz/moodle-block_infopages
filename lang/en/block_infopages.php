@@ -17,11 +17,28 @@
 /**
  * Version information
  *
- * @package    local_info
- * @copyright  Perry Way (https://www.linkedin.com/in/perry-way-75a49a144/)
+ * @package    block_infopages
+ * @copyright Perry Way (https://www.linkedin.com/in/perry-way-75a49a144/)
+ * Modified: Richard Jones (https://richardnz/net/)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
+// General.
 $string['pluginname'] = 'Information Pages';
+$string['viewlink'] = 'Index of static pages';
+$string['pagetitle'] = 'Information Pages Index';
+$string['tablecaption'] = 'List of pages';
+
+// DB columns.
+$string['name'] = 'Name';
+$string['title'] = 'Title';
+$string['heading'] = 'Heading';
+$string['visibleto'] = 'Visibility';
+$string['layout'] = 'Layout';
+$string['content'] = 'HTML';
+
+// Capability strings.
+$string['superframe:addinstance'] = 'Add an Information Pages block';
+$string['superframe:seeviewpage'] = 'See this page';

@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information
+ * block_infopages capabilities/permissions
  *
  * @package block_infopages
  * @copyright Perry Way (https://www.linkedin.com/in/perry-way-75a49a144/)
@@ -25,3 +25,30 @@
 
 defined('MOODLE_INTERNAL') || die();
 
+$capabilities = [
+
+    // This block only available to admins.
+    'block/infopages:addinstance' => array(
+        'riskbitmask' => RISK_SPAM | RISK_XSS,
+
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_BLOCK,
+        'archetypes' => array(
+            'editingteacher' => CAP_PREVENT,
+            'manager' => CAP_PREVENT
+        ),
+
+        'clonepermissionsfrom' => 'moodle/site:manageblocks'
+    ),
+    // Restrict access to view page.
+    'block/infopages:seeviewpage' => array(
+        'captype' => 'read',
+        'contextlevel' => CONTEXT_BLOCK,
+        'archetypes' => array(
+            'editingteacher' => CAP_PREVENT,
+            'manager' => CAP_PREVENT,
+            'student' => CAP_PREVENT,
+            'guest' => CAP_PREVENT
+        )
+    )
+];
