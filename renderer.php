@@ -39,7 +39,12 @@ class block_infopages_renderer extends plugin_renderer_base {
     public function display_view_page($pagerecords) {
 
         $data = new stdClass();
+        $baseurl = new moodle_url('/blocks/infopages/page_editor.php');
         $data->pages = array_values($pagerecords);
+
+        foreach ($data->pages as $page) {
+            $page->url = $baseurl->out(false, ['pageid' => $page->id]);
+        }
 
         // Start output to browser.
         echo $this->output->header();

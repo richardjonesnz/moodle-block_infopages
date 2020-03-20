@@ -15,36 +15,32 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information
+ * Page editing form
  *
- * @package    block_infopages
+ * @package block_infopages
  * @copyright Perry Way (https://www.linkedin.com/in/perry-way-75a49a144/)
  * Modified: Richard Jones (https://richardnz/net/)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace block_infopages\local;
 defined('MOODLE_INTERNAL') || die();
+require_once($CFG->libdir . '/formslib.php');
 
-// General.
-$string['pluginname'] = 'Information Pages';
-$string['viewlink'] = 'Index of static pages';
-$string['pagetitle'] = 'Information Pages Index';
-$string['tablecaption'] = 'List of pages';
+class block_infopages_page_editor_form extends moodleform {
 
-// DB columns.
-$string['name'] = 'Name';
-$string['title'] = 'Title';
-$string['heading'] = 'Heading';
-$string['visibleto'] = 'Visibility';
-$string['layout'] = 'Layout';
-$string['content'] = 'HTML';
+    public function definition() {
 
-// Capability strings.
-$string['superframe:addinstance'] = 'Add an Information Pages block';
-$string['superframe:seeviewpage'] = 'See this page';
+        $mform = $this->_form;
 
-// Page editing.
-$string['editlink'] = 'Edit page';
-$string['page_edit_title'] = 'Edit page';
-$string['page_editing'] = 'Editing page';
-$string['form_header'] = 'Edit the page';
+        $mform->addElement('header', 'header',
+                get_string('formheader', 'block_infopages'));
+
+        $mform->addElement('text', 'name', get_string('name', 'block_infopages'));
+        $mform->setType('name', PARAM_ALPHA);
+        $mform->addRule('name', null, 'required', null, 'client');
+
+        $this->add_action_buttons();
+    }
+
+}
